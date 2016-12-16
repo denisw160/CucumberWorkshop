@@ -1,3 +1,18 @@
-target/*
-.idea/*
+# IDE Settings #
+/.settings
+/.project
+/.classpath
+/.idea
+/bin
+/target
 *.iml
+
+# Java Classes #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Project Files #
