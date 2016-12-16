@@ -38,9 +38,22 @@ public class CalculatorFeatureSteps {
         calculator.add(arg1, arg2);
     }
 
+    @When("^I will add two number (.+) and (.*)$")
+    public void i_add_double_and_double(final String arg1, final String arg2) throws Throwable {
+        final double in1 = Double.parseDouble(arg1);
+        final double in2 = Double.parseDouble(arg2);
+        calculator.add(in1, in2);
+    }
+
     @Then("^the result should be (\\d+)$")
     public void the_result_should_be(final int result) throws Throwable {
         assertEquals(result, calculator.getResult(), 0.0);
     }
+
+    @Then("^the result should be number (.+)$")
+    public void the_result_should_be_double(final String result) throws Throwable {
+        assertEquals(Double.parseDouble(result), calculator.getResult(), 0.0);
+    }
+
 
 }
