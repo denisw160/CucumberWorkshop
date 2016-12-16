@@ -17,6 +17,7 @@
     <!-- Build Settings -->
     <build>
         <plugins>
+            <!-- Compiler -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.0</version>
@@ -25,6 +26,29 @@
                     <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+
+            <!-- Reporting for Cucumber -->
+            <!-- generate mvn verify -->
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>${project.name}</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber/cucumber.json</cucumberOutput>
+                            <parallelTesting>false</parallelTesting>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -44,6 +68,16 @@
             <version>1.2.5</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Reporting -->
+        <!--
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        -->
 
         <!-- Tests -->
         <dependency>

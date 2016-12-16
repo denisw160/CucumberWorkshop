@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        format = { "pretty", "html:target/cucumber" },
+        format = {"pretty",
+                "html:target/cucumber",
+                "json:target/cucumber/cucumber.json"},
         glue = "de.netpage.cucumber",
         features = "classpath:cucumber/calculator.feature"
 )
